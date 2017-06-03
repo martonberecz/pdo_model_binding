@@ -17,7 +17,7 @@ class Model{
 		}
 	}
 
-	//for jason encoded version trough all modell extends base Model
+	//for json encoded version trough all model extends base Model
 	public function __toString(){
 		foreach ($this->hidden as $hidden) {
 			unset($this->{$hidden}); //unset the data from toString that to be filtered from json!
