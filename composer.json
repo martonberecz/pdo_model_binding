@@ -1,0 +1,10 @@
+{
+	"autoload": {
+		"psr-4": {
+			"Marton\\": "app/Marton"
+		}
+	},
+	"require": {
+		"nesbot/carbon": "^1.22"
+	}
+}
