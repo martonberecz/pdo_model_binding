@@ -1,10 +1,12 @@
 {
 	"autoload": {
 		"psr-4": {
-			"Marton\\": "app/Marton"
+			"Marton\\": "app/Marton",
+			"mail\\": "/" 
 		}
 	},
 	"require": {
-		"nesbot/carbon": "^1.22"
+		"nesbot/carbon": "^1.22",
+		"phpmailer/phpmailer": "^5.2"
 	}
 }

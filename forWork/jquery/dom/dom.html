@@ -1,0 +1,56 @@
+<html>
+<head> 
+<title></title>
+<script src="../js/jquery-3.2.1.js"></script>
+ <script type="text/javascript">
+ 
+  $(document).ready(function () {
+
+   //alert($('div').attr('title')); 
+
+  //To retrieve the title attribute value of all the matching elements, jQuery each() method 	can be used.
+  /*
+  $('div').each(function () { 
+  	alert($(this).attr('title')); 
+  });
+  */
+
+  //Sets the title attribute value of all the matching elements to "new div title"
+	//$('div').attr('title', 'new div title');
+/*
+	$('div').each(function () { 
+		alert($(this).attr('title')); 
+	});
+	
+
+	$('div').each(function (i) { 
+		$(this).attr('title', 'div ' + (i + 1) + ' title'); 
+	}); 
+*/
+
+	//How to set multiple attribute values : Using a JSON object to set multiple attribute values
+
+	
+	var config = { 'title': 'New Div Title', 'style': 'border:3px solid red;', 'name': 'My Div' }; 
+	$('div').attr(config); 
+	var result = '';
+	$('div').each(function () { 
+		result += 'title = ' + $(this).attr('title') + '<br/>';
+		result += 'style = ' + $(this).attr('style') + '<br/>';
+		result += 'name = ' + $(this).attr('name') + '<br/><br/>'; 
+	});
+	$('#resultSpan').html(result);
+
+  	//$('div').attr({ 'title': 'New Div Title', 'style': 'border:3px solid red;', 'name': 'My Div'});
+  	
+  }); 
+
+  </script>
+</head>
+<body style="font-family:Arial">
+ <div id="div1" title="My DIV1"> DIV 1 </div>
+ <div id="div2" title="My DIV2"> DIV 2 </div>
+<br /> <span id="resultSpan"> </span><br />
+</body>
+</html>
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/customStyle.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        /*
+        //get checkbox value
+          $('#sex').click(function(){
+            var result = $('input[type="radio"]:checked');  //select only the checked boxes
+            if(result.length > 0){            
+              $('#divResult').html(result.val() + " is checked"); //to get the value of the selected elemtent use val() on it
+            }
+            else{
+              $('#divResult').html("No checkbox checked");
+            }
+          });
+*/
+         $('#food').click(function(){
+            getCheckedText("food");
+         });
+
+         $('input[name="cities"]').click(function(){ //the checkbox will have the click event
+            getCheckedCheckBoxes("cities");
+         });
+          
+         var getCheckedCheckBoxes = function(groupName){
+            var result = $('input[name="' + groupName + '"]:checked');  //select only the checked boxes
+            if(result.length > 0){
+              var resultString = result.length + " checkbox(s) checked<br/>";
+              result.each(function(){
+                resultString += $(this).val() + "<br/>"; //this refferring to a check box in the result collection of checkboxes
+              });
+              $('#divResult').html(resultString);
+            }
+            else{
+              $('#divResult').html("No checkbox checked");
+            }
+          };
+
+          var getCheckedText = function(groupName){
+            var result = $('input[name="' + groupName + '"]:checked');  //select only the checked boxes
+            if(result.length > 0){
+              var resultString = result.length + " checkbox(s) checked<br/>";
+              var boxValue ="";
+              result.each(function(){
+                boxValue += $(this).val(); 
+                resultString += $('label[for="food-' + boxValue + '"]').text() + "<br/>"; //to get the text of the html element use text()
+              });
+              $('#divResult').html(resultString);
+            }
+            else{
+              $('#divResult').html("No checkbox checked");
+            }
+          };
+
+          //css
+          $('span').css('color', 'grey');
+
+        });
+        
+
+    </script>
+      </head>
+  <body>
+        <br/>
+        <form>
+          <input type="radio" name="sex" value="Male">Male
+          <input type="radio" name="sex" value="Fmale">Fmale
+          <input type="radio" name="sex" value="Both">Both
+          <br/>
+          <input type="button" id="sex" value="Sex">
+
+          <br/><br/>
+          <input type="text"><br/><br/>
+          <input type="checkbox" name="cities" value="newYork">New York
+          <input type="checkbox" name="cities" value="Chichago">Chichago
+          <input type="checkbox" name="cities" value="Budapest">Budapest 
+          <span>(just click me)</span>
+          
+          <br/>
+          <br/>
+          <input type="checkbox" name="food" value="Milk">
+          <label for="food-Milk">Milk</lable>
+          <input type="checkbox" name="food" value="Grass">
+          <label for="food-Grass">Grass</lable>
+          <input type="checkbox" name="food" value="Potato">
+          <label for="food-Potato">Potato</lable>
+          <br/>
+          <input type="button" id="food" value="Fav food">
+
+        </form>     
+      <br/><br/>
+      <div id="divResult">
+      </div>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
